@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Schedule</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+</head> 
+<body>
+    <div class="flex-container">
+        <div class="row">
+            <div class="col-12 mainHeader">
+                <div class="jumbotron trainHead">
+                    <h1 class="display-4">Train Schedule</h1>
+                    <p class="lead">"Sometimes that light at the end of the tunnel is a Train"</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 tableMe">
+                <table class="currentTrain">
+                    <thead>
+                        <tr>
+                            <td colspan = "5" class="colorMe">Current Train Schedule</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th> 
+                        <th>Frequency (min)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                    <tr>
+                        <td>Choo Choo Train</td>
+                        <td>Flagstaff</td> 
+                        <td>140</td>
+                        <td>2:55 pm</td>
+                        <td>15</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 submitMe">
+                <form class="formMe">
+                    <label class="addTrain">Add Train</label>
+                    <p class="forT1 texty">Train Name</p>
+                    <input type="text" name="trainName" class="input1">
+                    <p class="forT2 texty">Destination</p>
+                    <input type="text" name="destination" class="input2">
+                    <br>
+                    <p class="forT3 texty">First Train Time (HH:mm - military time)</p>
+                    <input type="text" name="time" class="input3">
+                    <br>
+                    <p class="forT4 texty">Frequency (min)</p>
+                    <input type="text" name="frequency" class="input4">
+                    <br><br>
+                    <input type="submit" style="background:rgb(71, 115, 4);color:white">
+                </form>      
+            </div>
+    </div>
+    <script src="./assets/javascript/app.js"></script>
+</body>
+</html> 
+        
