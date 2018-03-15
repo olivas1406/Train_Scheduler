@@ -62,31 +62,12 @@ $(document).ready(function(){
             $(".testingDiv").append(snapshot.val().dest + "<br>");
             $(".testingDiv").append(snapshot.val().first + "<br>");
             $(".testingDiv").append(snapshot.val().freq + "<br>");
-
-
+           $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().first + "</td><td>" + snapshot.val().freq + "</td><td>'min away holder'</td></tr>");
         
         }, function(errorObject) {
             console.log("Errors handled: " + errorObject.code);
         });    
-  
-        
-
-    
 });
-
-        // Change the HTML to reflect 
-/*
-    function pushToHTML() {
-        $("<tr>").append("<td>"(snapshot.val().name));
-        $("<tr>").append("<td>"(snapshot.val().dest));
-        $("<tr>").append("<td>"(snapshot.val().first));
-        $("<tr>").append("<td>"(snapshot.val().freq));    
-
-      //  $("#name-display").text(snapshot.val().name);
-      //  $("#email-display").text(snapshot.val().started);
-      //  $("#age-display").text(snapshot.val().rate);
-      //  $("#comment-display").text(snapshot.val().role);  
-*/
 
 
 

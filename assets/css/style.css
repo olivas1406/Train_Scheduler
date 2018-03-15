@@ -24,7 +24,7 @@ body {
 }
 
 .currentTrain {
-    background: darkblue;   
+    
     margin-left: auto;
     margin-right: auto;
     margin-top: -2%;
@@ -89,15 +89,7 @@ input[type=text], select {
 }
 
 
-/*  REMOVE ME    */
-/*  REMOVE ME    */
-.testingDiv {
-    background: purple;
-    color: white;
-    margin-left: 25%;
-}
-/*  REMOVE ME    */
-/*  REMOVE ME    */
+
 
 
 
