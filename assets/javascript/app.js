@@ -42,10 +42,12 @@ $(document).ready(function(){
         freq: freq,                                                         // Push var freq to 'freq'
         dateAdded: firebase.database.ServerValue.TIMESTAMP                  // Add a timestamp
       });
+      resetForm();
     });
 
-
-
+    function resetForm() {
+        $(".formMe")[0].reset();
+    }
 
 
 
