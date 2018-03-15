@@ -24,7 +24,6 @@ body {
 }
 
 .currentTrain {
-    
     margin-left: auto;
     margin-right: auto;
     margin-top: -2%;
@@ -87,11 +86,6 @@ input[type=text], select {
 .texty {
     margin-bottom: -.05%;
 }
-
-
-
-
-
 
 
 

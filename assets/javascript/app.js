@@ -11,7 +11,7 @@
 
 $(document).ready(function(){ 
 
-    var config = {                                                            // Initialize Firebase
+    var config = {                                                              // Firebase info            
         apiKey: "AIzaSyBv2sCzhibbjk_F5ug6VkH-r9V9Y5n8s-M",
         authDomain: "choochoo-b7192.firebaseapp.com",
         databaseURL: "https://choochoo-b7192.firebaseio.com",
@@ -20,28 +20,28 @@ $(document).ready(function(){
         messagingSenderId: "517666581796"
     };
 
-    firebase.initializeApp(config);
+    firebase.initializeApp(config);                                             // Initialize Firebase
 
-    var dataRef = firebase.database();                                        // Use the Firebase DB service                                    
+    var dataRef = firebase.database();                                          // Use the Firebase DB service                                    
 
-    var trainName = "";
-    var dest = "";
-    var firstTt = 0;
-    var freq = 0;
+    var trainName = "";                                                         // Variable to hold the train name (input 1)
+    var dest = "";                                                              // Variable to hold the destination (input 2)
+    var firstTt = 0;                                                            // Variable to hold the first train time (input 3)
+    var freq = 0;                                                               // Variable to hold the frequency (input 4)
 
-    function resetForm() {
+    function resetForm() {                                                      // Function to clear the form
         $(".formMe")[0].reset();
     };
 
-    $(".pushMe").on("click", function(event) {                                // When you push the 'Submit' button
-        event.preventDefault();                                               // Stop the default action
+    $(".pushMe").on("click", function(event) {                                  // When you push the 'Submit' button
+        event.preventDefault();                                                 // Stop the default action
 
-        trainName = $(".input1").val().trim();                                // Store what is in input1 in var trainName
-        dest = $(".input2").val().trim();                                     // Store what is in input2 in var dest
-        firstTt = $(".input3").val().trim();                                  // Store what is in input3 in var firstTt
-        freq = $(".input4").val().trim();                                     // Store what is in input4 in var freq
+        trainName = $(".input1").val().trim();                                  // Store what is in input 1 in var trainName
+        dest = $(".input2").val().trim();                                       // Store what is in input 2 in var dest
+        firstTt = $(".input3").val().trim();                                    // Store what is in input 3 in var firstTt
+        freq = $(".input4").val().trim();                                       // Store what is in input 4 in var freq
 
-        dataRef.ref().push({                                                  // Push this to Firebase
+        dataRef.ref().push({                                                    // Push to Firebase
             name: trainName,                                                    // Push var TrainName to 'name'
             dest : dest,                                                        // Push var dest to 'dest'
             first: firstTt,                                                     // Push var firstTt to 'first'
@@ -49,23 +49,19 @@ $(document).ready(function(){
             dateAdded: firebase.database.ServerValue.TIMESTAMP                  // Add a timestamp
         });
     
-        resetForm();
+        resetForm();                                                            // Call the resetForm function to clear the form
     });
 
-        dataRef.ref().limitToLast(1).on('child_added', function(snapshot) {
-            console.log(snapshot.val().name);
-            console.log(snapshot.val().dest);
-            console.log(snapshot.val().first);
-            console.log(snapshot.val().freq);
-
-            $(".testingDiv").html(snapshot.val().name + "<br>");
-            $(".testingDiv").append(snapshot.val().dest + "<br>");
-            $(".testingDiv").append(snapshot.val().first + "<br>");
-            $(".testingDiv").append(snapshot.val().freq + "<br>");
+        dataRef.ref().limitToLast(1).on('child_added', function(snapshot) {     // Pull the last entry from firebase
+            console.log(snapshot.val().name);                                   // Show me the value for 'name' at the console
+            console.log(snapshot.val().dest);                                   // Show me the value for 'dest' at the console
+            console.log(snapshot.val().first);                                  // Show me the value for 'first' at the console
+            console.log(snapshot.val().freq);                                   // Show me the value for 'freq' at the console
+                                                                                // Add div 'trainChild' and push name/dest/first/freq to the HTML 
            $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().first + "</td><td>" + snapshot.val().freq + "</td><td>'min away holder'</td></tr>");
         
-        }, function(errorObject) {
-            console.log("Errors handled: " + errorObject.code);
+        }, function(errorObject) {                                              // Error handling
+            console.log("Errors handled: " + errorObject.code);                 // Show me errors at the console
         });    
 });
 
