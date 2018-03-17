@@ -38,8 +38,8 @@ $(document).ready(function(){
 
         trainName = $(".input1").val().trim();                                  // Store what is in input 1 in var trainName
         dest = $(".input2").val().trim();                                       // Store what is in input 2 in var dest
-        firstTt = $(".input3").val().trim();                                    // Store what is in input 3 in var firstTt
-        freq = $(".input4").val().trim();                                       // Store what is in input 4 in var freq
+        firstTt = $(".input4").val().trim();                                    // Store what is in input 3 in var firstTt
+        freq = $(".input3").val().trim();                                       // Store what is in input 4 in var freq
 
         dataRef.ref().push({                                                    // Push to Firebase
             name: trainName,                                                    // Push var TrainName to 'name'
@@ -57,16 +57,68 @@ $(document).ready(function(){
         console.log(snapshot.val().dest);                                   // Show me the value for 'dest' at the console
         console.log(snapshot.val().first);                                  // Show me the value for 'first' at the console
         console.log(snapshot.val().freq);                                   // Show me the value for 'freq' at the console
+
+      var firstTimeConverted = new Date(moment(snapshot.val().dateAdded *1000, 'HH:mm'));  
+     
+        console.log("Converted Timestamp " + firstTimeConverted);
+            
+        // get the current time
+                var currentTime = moment();
+            console.log("Current Time: " + moment(currentTime).format('MMMM Do YYYY, h:mm:ss a'));
+
+
+
+
+
+
+            // Difference between the times
+          //  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+            var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+            console.log("DIFFERENCE IN TIME: " + diffTime);
+
+
+
+
+             // Time apart (remainder)
+         var tRemainder = diffTime % freq;
+      //      console.log("TIME REMAINDER: " + tRemainder);
+          //  var tRemainder = freq % diffTime;
+            console.log("TIME REMAINDER: " + tRemainder);
+
+
+
+        // Minute Until Train
+        var tMinutesTillTrain = freq - tRemainder;
+        console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+            // Next Train
+        var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+        console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+
+
+
+
                                                                                 // Add div 'trainChild' and push name/dest/first/freq to the HTML 
-        $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().first + "</td><td>" + snapshot.val().freq + "</td><td>'min away holder'</td></tr>");
+     //   $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().freq + "</td><td>" + snapshot.val().first + "</td><td>" + nextTrain + "</td></tr>");
+   
         
+
+        $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().freq + "</td><td>" + nextTrain + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+        
+
+
+
+
+
+
+
         }, function(errorObject) {                                              // Error handling
             console.log("Errors handled: " + errorObject.code);                 // Show me errors at the console
     });    
 });
 
-
-
+///////////////////   the drop   /////////////////////
 
 
 
