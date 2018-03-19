@@ -80,7 +80,13 @@ $(document).ready(function(){
         
         }, function(errorObject) {                                              // Error handling
             console.log("Errors handled: " + errorObject.code);                 // Show me errors at the console
-    });    
+    });   
+    
+  //  setInterval(function(){
+   //    $(".currentTrain").load("dataRef.ref");
+   //  }, 5000)                                                      /* time in milliseconds (ie 2 seconds)*/
+
+
 });
 
 
