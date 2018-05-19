@@ -4,11 +4,15 @@ add train informatio and see what time the next train is expected to arrive.  Th
 is useful for tracking scheduled arrival/departure times (trains/planes/buses).  To get 
 started, fill out the form and click 'submit' to add train data.
 
-This page was created and is maintained by Daniel Olivas, to get help: 
- 
-             
-  president@computersoluciones.us
-              
+---
+[CLICK ME to see it in action](https://olivas1406.github.io/chooChoo/)
+<br>
+---
+![Train Scheduler Screen Cap](./train.png)
 
-  https://www.linkedin.com/in/daniel-olivas/
+This project was created and is maintained by Daniel Olivas
+
+To get help:<br><br>
+me@danielolivas.net<br>
+http://danielolivas.net
     
