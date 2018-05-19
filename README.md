@@ -8,7 +8,7 @@ is useful for tracking scheduled arrival/departure times (trains/planes/buses). 
 started, fill out the form and click 'submit' to add train data.
 
 ---
-[CLICK ME to see it in action](https://olivas1406.github.io/chooChoo/)
+[CLICK ME to see it in action](https://olivas1406.github.io/Train_Scheduler/)
 <br>
 ---
 ![Train Scheduler Screen Cap](./train.png)
