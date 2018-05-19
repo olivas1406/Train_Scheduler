@@ -1,4 +1,7 @@
-# chooChoo
+#
+<h1>
+<p align="center">Train Scheduler</p>
+</h1>
 This is a dynamic webpage that allows you to create and update a train schedule.  Users can 
 add train informatio and see what time the next train is expected to arrive.  This project
 is useful for tracking scheduled arrival/departure times (trains/planes/buses).  To get 
