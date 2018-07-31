@@ -1,4 +1,3 @@
-
 /*     
      '( 
     "' //}
@@ -7,9 +6,7 @@
   (o)___)}___}}___}}___}
   'U'0 0  0 0  0 0  0 0  
 */
-
 $(document).ready(function(){ 
-
     var config = {                                                                  // Firebase info            
         apiKey: "AIzaSyBv2sCzhibbjk_F5ug6VkH-r9V9Y5n8s-M",
         authDomain: "choochoo-b7192.firebaseapp.com",
@@ -22,7 +19,6 @@ $(document).ready(function(){
     firebase.initializeApp(config);                                                 // Initialize Firebase
 
     var dataRef = firebase.database();                                              // Store the Firebase DB                                  
-
     var trainName = "";                                                             // Variable to hold the train name (input 1)
     var dest = "";                                                                  // Variable to hold the destination (input 2)
     var firstTt = 0;                                                                // Variable to hold the first train time (input 3)
@@ -47,7 +43,6 @@ $(document).ready(function(){
             freq: freq,                                                             // Push var freq to 'freq'
             dateAdded: firebase.database.ServerValue.TIMESTAMP                      // Add a timestamp
         });
-    
         resetForm();                                                                // Call the resetForm function to clear the form
     });
 
@@ -60,31 +55,20 @@ $(document).ready(function(){
         
         var firstTimeConverted = moment(storedFirst, "HH:mm").subtract(1, "years"); // First time
         console.log(firstTimeConverted);                                            // Show me the value at the console
-        
         var currentTime = moment();                                                 // Get the current time
         console.log("Current Time: " + moment(currentTime).format("hh:mm"));        // Show me the value at the console
-        
         var diffTime = moment().diff(moment(firstTimeConverted), "minutes");        // Get the difference between the first time and the current time
         console.log("Time Difference: " + diffTime);                                // Show me the value at the console
-    
         var tRemainder = diffTime % storedFreq;                                     // Get the remainder between var diffTime and var storedFreq to determine the time apart
         console.log("Time Apart: " + tRemainder);                                   // Show me the value at the console
-            
         var tMinutesTillTrain = storedFreq - tRemainder;                            // Get the time between trains by subtracting var tRemainder from var storedFreq
         console.log("Minutes Until Next Train: " + tMinutesTillTrain);              // Show me the value at the console
-    
         var nextTrain = moment().add(tMinutesTillTrain, "minutes");                 // Figure out the minutes until the next train
         console.log("Arrival Time: " + moment(nextTrain).format("hh:mm"));
-        
                                                                                     // Push to the HTML
         $(".currentTrain").append("<tr class='trainChild'><td>" + snapshot.val().name + "</td><td>" + snapshot.val().dest + "</td><td>"+ snapshot.val().freq + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
         
         }, function(errorObject) {                                                  // Error handling
             console.log("Errors handled: " + errorObject.code);                     // Show me errors at the console
     });   
-
 });
-
-
-
-
